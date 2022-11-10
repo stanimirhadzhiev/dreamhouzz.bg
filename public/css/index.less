@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;700&display=swap');
+@import url(header.css);
+@import url(footer.css);
+
+@mainFont: 'Open Sans', sans-serif;
+
+body{
+    margin: 0%;
+    
+}
+
+.box{
+    width: 1500px;
+    margin-top: 20px;
+    font-family: @mainFont;
+}
+
+
+
+.mainSection{
+    width: 100%;
+    margin-top: 170px;
+}
+
+.aboutUsAndRegistration{
+    width: 1500px;
+    height: 800px;
+    margin: auto;
+    display: flex;
+}
+
+
+.aboutusContainer{
+    width: 65%;
+    height: 100%;
+    background-image: url(../images/huy-phan-HqLcI0Dyl4o-unsplash.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.aboutusInfo{
+    width: 400px;
+    height: 600px;
+    margin: auto;
+    margin-top: 300px;
+}
+
+.registrationContainer{
+    width: 35%;
+    height: 100%;
+    background-color: #113350;
+    color: #fff;
+    
+    h2{
+       
+        font-size: 36px;
+        font-weight: bold;
+        margin: 0px 50px;
+    }
+    a{
+        color: #fff;
+        margin: 0px 50px;
+    }
+    p{
+        margin: 20px 50px;
+    }
+    
+}
+
+.registrationProgramName{
+    height: 30px;
+    width: 255px;
+    margin: 150px 50px 20px 50px;
+    font-size: 25px;
+    font-weight: bold;
+    
+    img{
+        float: left;
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+    }
+} 
+
+.regEmail{
+    margin-top: 30px;
+    margin-left: 50px;
+    width: 330px;
+    height: 25px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    
+}
+
+.regBTN{
+    margin-top: 15px;
+    margin-left: 50px;
+    width: 340px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    background-color: #0066c3;
+    color: #fff;
+    cursor: pointer;
+}
+
+.privacyPolicy{
+    width: 340px;
+    margin-left: 50px;
+    font-size: 12px;
+}
+
+
+// carosel 
+
+.caroselSection{
+    width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.mostPopularCaroselContainer{
+    display: inline-block;
+    margin: 50px 0px;
+    h2{
+        margin-bottom: 20px;
+    }
+}
+
+.CaroselContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.CaroselCard{
+    display: inline-block;
+    width: 280px;
+    height: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    cursor: pointer;
+}
+
+.CaroselCard:hover{
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);;
+}
+
+.CaroselCardImg{
+    width: 280px;
+    height: 150px;
+    display: inline-block;
+}
+
+.CompanyName{
+    color: #319d3f;
+    margin: 5px 10px;
+    text-align: left;
+    width: 100%;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.CaroselcardTxt{
+    margin-left: 10px;
+    text-align: left;
+}
