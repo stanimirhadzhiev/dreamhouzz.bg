@@ -1,8 +1,8 @@
-import { useContext } from "react"
-import {useNavigate} from "react-router-dom"
+import { useContext } from "react";
+import {useNavigate} from "react-router-dom";
 
-import * as authService from "../../services/authService"
-import { AuthContext } from "../../contexts/AuthContext"
+import * as authService from "../../services/authService";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Login = () => {
     const navigate = useNavigate();
@@ -15,19 +15,17 @@ const Login = () => {
             email,
             password,
         } = Object.fromEntries(new FormData(e.target));
-        console.log(email);
-        console.log(password);
-        // authService.login(email, password)
-        //     .then(authData =>{
-        //         userLogin(authData);
-        //         navigate('/');
-        //     })
-        //     .catch(() => {
-        //         navigate('/404');
-        //     })
+
+        authService.login(email, password)
+            .then(authData => {
+                userLogin(authData);
+                navigate('/');
+            })
+            .catch(() => {
+                navigate('/404');
+            })
         
     };
-    
     return (
 
         <div id="id01" className="modal" >

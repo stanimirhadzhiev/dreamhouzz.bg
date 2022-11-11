@@ -1,13 +1,42 @@
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+
+import * as authService from "../../services/authService";
+import { AuthContext } from "../../contexts/AuthContext";
 
 
-const Register = ({closeRegisterModal}) => {
+const Register = () => {
+    const navigate = useNavigate();
+    const {userLogin} = useContext(AuthContext);
+    
 
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+
+        const email = formData.get('email');
+        const password = formData.get('password');
+        const confirmPassword = formData.get('confirmPassword');
+        const companyName = formData.get('companyName');
+        console.log(formData);
+
+        if (password !== confirmPassword) {
+            return;
+        }
+
+        authService.register(email, password)
+            .then(authData => {
+                userLogin(authData);
+                navigate('/');
+            });
+    }
 
     return (
         <div id="id02" className="modal">
             <form
                 className="modal-content animate"
+                onSubmit={onSubmit}
             >
                 <div className="container" style={{ backgroundColor: "#f1f1f1", borderRadius: "10px 10px 0px 0px" }}>
                     <h1>Регистрация за фирми</h1>
@@ -101,8 +130,8 @@ const Register = ({closeRegisterModal}) => {
                 </div>
                 <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
                     <button
+                        onClick={() => navigate('/')}
                         type="button"
-                        onClick={() => closeRegisterModal(false)}
                         className="cancelbtn"
                     >
                         Cancel

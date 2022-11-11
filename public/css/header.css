@@ -23,7 +23,7 @@ a {
 }
 .searchSection {
   display: flex;
-  width: 600px;
+  width: 50%;
   height: 35px;
   border: 2px #D3D3D3 solid;
 }
@@ -43,15 +43,22 @@ a {
   color: #949494;
 }
 .regContainer {
-  width: 280px;
+  width: 285px;
   height: 100%;
   display: flex;
   align-items: flex-end;
+  flex-direction: row;
+}
+.guest {
+  width: 100%;
+}
+.user {
+  width: 100%;
 }
 .signInBTN {
   display: flex;
   justify-content: center;
-  width: 35%;
+  width: 100px;
   height: 35px;
   font-size: 20px;
   font-weight: bold;
@@ -76,7 +83,7 @@ a {
 .registrationBTN {
   display: flex;
   justify-content: center;
-  width: 65%;
+  width: 180px;
   height: 35px;
   font-size: 20px;
   font-weight: bold;

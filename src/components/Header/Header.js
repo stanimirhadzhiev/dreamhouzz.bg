@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useContext } from 'react';
 
 import Login from '../Login/Login'
 import Register from '../Register/Register';
+import { AuthContext } from '../../contexts/AuthContext';
 
 
 
 const Header = () => {
 
-    const [openRegisterModal, setOpenRegisterModal] = useState(false);
-    const [openLoginModal, setOpenLoginModal] = useState(false);
+
+    const {user} = useContext(AuthContext);
 
     return (
         <header className="headerSection">
@@ -29,18 +31,26 @@ const Header = () => {
                     />
                 </div>
                 <div className="regContainer">
+                    {user.email
+                        ?   <div className='user'>
+                                <span>{user.email}</span>
+                                <Link to="#">Профил</Link>
+                                <Link to="/logout">Изход</Link>
+                            </div>
+                        :   <div className='guest'>
+                                <Link to="/login" className="signInBTN" >
+                                    <span className="userIcon" />
+                                    <span className="signInBTNtext">Вход</span>
+                                </Link>
+                                <Link to ="/register" className="registrationBTN" >
+                                    <span className="registrationIcon" />
+                                    <span className="registrationBTNtext">Регистрация</span>
+                                </Link>
+                            </div>
+                    }
                     
-                        <Link to="/login" className="signInBTN" >
-                            <span className="userIcon" />
-                            <span className="signInBTNtext">Вход</span>
-                        </Link>
                     
-                    <div className="registrationBTN" onClick={() => {setOpenRegisterModal(true);}}>
-                        
-                        <span className="registrationIcon" />
-                        <span className="registrationBTNtext">Регистрация</span>
-                        
-                    </div>
+                    
                 </div>
             </div>
             <nav className="headerNavigation">
@@ -68,8 +78,6 @@ const Header = () => {
                     </Link>
                 </div>
             </nav>
-            {openRegisterModal && <Register closeRegisterModal = {setOpenRegisterModal}/>}
-            {openLoginModal && <Login closeLoginModal = {setOpenLoginModal}/>}
         </header>  
     );
 };
