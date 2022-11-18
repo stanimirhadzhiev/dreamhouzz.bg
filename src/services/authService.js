@@ -12,12 +12,19 @@ export const logout = async (accessToken) => {
                 'X-Authorization': accessToken
             }
         });
-    
+        
+
         return response;
     } catch (error) {
         console.log(error);
     }
 };
 
-export const register = (email, password, companyName) =>
-    request.post(`${baseUrl}/register`, {email, password, companyName});
+export const register = (...userData) =>
+    request.post(`${baseUrl}/register`, {...userData});
+
+
+// export const getAllUserData = () => 
+//     request.get(`${baseUrl}/me`)
+
+// console.log(getAllUserData);

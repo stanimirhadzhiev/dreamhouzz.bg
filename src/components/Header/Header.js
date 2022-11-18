@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { useContext } from 'react';
 
-import Login from '../Login/Login'
-import Register from '../Register/Register';
 import { AuthContext } from '../../contexts/AuthContext';
+import styles from './Header.module.css';
 
 
 
@@ -14,38 +12,52 @@ const Header = () => {
     const {user} = useContext(AuthContext);
 
     return (
-        <header className="headerSection">
-            <div className="headerFirstContainer">
-                <div className="logo">
+        <header className={styles.headerSection}>
+            <div className={styles.headerFirstContainer}>
+                <div className={styles.logo}>
                     <Link to="/">
                         <img src="images/logo.png" alt="" />
                     </Link>
                 </div>
-                <div className="searchSection">
-                    <a className="srcBTN" href="#"></a>
+                <div className={styles.searchSection}>
+                    <Link className={styles.srcBTN} to="#"></Link>
                     <input
-                    className="searchBox"
+                    className={styles.searchBox}
                     type="search"
                     name="searchBox"
                     id="searchBox"
                     />
                 </div>
-                <div className="regContainer">
+                <div className={styles.regContainer}>
                     {user.email
-                        ?   <div className='user'>
-                                <span>{user.email}</span>
-                                <Link to="#">Профил</Link>
-                                <Link to="/logout">Изход</Link>
+                        ?   <div className={styles.user}>
+                                
+                                <div className={styles.signInBTN}>
+                                    <Link to="#">
+                                        <span className={styles.userIcon} />
+                                        <span className={styles.signInBTNtext}>Профил</span>
+                                    </Link>
+                                </div>
+                                <div className={styles.signInBTN}>
+                                    <Link to="/logout">
+                                        <span className={styles.userIcon} />
+                                        <span className={styles.signInBTNtext}>Изход</span>
+                                    </Link>
+                                </div>
                             </div>
-                        :   <div className='guest'>
-                                <Link to="/login" className="signInBTN" >
-                                    <span className="userIcon" />
-                                    <span className="signInBTNtext">Вход</span>
-                                </Link>
-                                <Link to ="/register" className="registrationBTN" >
-                                    <span className="registrationIcon" />
-                                    <span className="registrationBTNtext">Регистрация</span>
-                                </Link>
+                        :   <div className={styles.guest}>
+                                <div className={styles.signInBTN}>
+                                    <Link to="/login"  >
+                                        <span className={styles.userIcon} />
+                                        <span className={styles.signInBTNtext}>Вход</span>
+                                    </Link>
+                                </div>
+                                <div className={styles.registrationBTN}>
+                                    <Link to ="/register"  >
+                                        <span className={styles.registrationIcon} />
+                                        <span className={styles.registrationBTNtext}>Регистрация</span>
+                                    </Link>
+                                </div>
                             </div>
                     }
                     
@@ -53,28 +65,28 @@ const Header = () => {
                     
                 </div>
             </div>
-            <nav className="headerNavigation">
-                <div className="navContainer">
-                    <Link to="/architecture-companies" className="navBTN">
-                        <div className="architectsImgBTN" />
-                        <div className="navTxtBTN">
+            <nav className={styles.headerNavigation}>
+                <div className={styles.navContainer}>
+                    <Link to="/architecture-companies" className={styles.navBTN}>
+                        <div className={styles.architectsImgBTN} />
+                        <div className={styles.navTxtBTN}>
                             Архитектура &amp; проектиране на сгради
                         </div>
                     </Link>
                     <span>|</span>
-                    <Link to="/interior-design" className="navBTN">
-                        <div className="interiorDesignImgBTN" />
-                        <div className="navTxtBTN">Интериорен дизайн</div>
+                    <Link to="/interior-design" className={styles.navBTN}>
+                        <div className={styles.interiorDesignImgBTN} />
+                        <div className={styles.navTxtBTN}>Интериорен дизайн</div>
                     </Link>
                     <span>|</span>
-                    <Link to="/landscape-architect" className="navBTN">
-                        <div className="landscapeImgBTN" />
-                        <div className="navTxtBTN">Ландшафтна архитектура</div>
+                    <Link to="/landscape-architect" className={styles.navBTN}>
+                        <div className={styles.landscapeImgBTN} />
+                        <div className={styles.navTxtBTN}>Ландшафтна архитектура</div>
                     </Link>
                     <span>|</span>
-                    <Link to="/building-companies" className="navBTN">
-                        <div className="buildingImgBTN" />
-                        <div className="navTxtBTN">Строителство и ремонтни дейности</div>
+                    <Link to="/building-companies" className={styles.navBTN}>
+                        <div className={styles.buildingImgBTN} />
+                        <div className={styles.navTxtBTN}>Строителство и ремонтни дейности</div>
                     </Link>
                 </div>
             </nav>

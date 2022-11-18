@@ -1,46 +1,47 @@
 import { Link } from 'react-router-dom';
+import styles from './Footer.module.css';
 
 const Footer = () => {
     return(
-        <footer className="footerSection">
-            <div className="footerContainer">
-                <div className="footerContainerFirstColumn">
-                    <div className="logo">
+        <footer className={styles.footerSection}>
+            <div className={styles.footerContainer}>
+                <div className={styles.footerContainerFirstColumn}>
+                    <div className={styles.logo}>
                         <Link to="/">
                             <img src="images/logo2.png" alt="" />
                         </Link>
                     </div>
-                    <div className="socialMediaContainer">
-                        <a href="#">
+                    <div className={styles.socialMediaContainer}>
+                        <Link to="#">
                             <img src="images/icons/icons8-facebook-48.png" alt="" />
-                        </a>
-                        <a href="#">
+                        </Link>
+                        <Link to="#">
                             <img src="images/icons/icons8-instagram-48.png" alt="" />
-                        </a>
-                        <a href="#">
+                        </Link>
+                        <Link to="#">
                             <img src="images/icons/icons8-linkedin-48.png" alt="" />
-                        </a>
+                        </Link>
                     </div>
-                    <div className="copyright">
+                    <div className={styles.copyright}>
                         ©2022 dreamhouzz.bg - Всички права запазени.
                     </div>
                 </div>
-                <div className="footerContainerSecondColumn">
+                <div className={styles.footerContainerSecondColumn}>
                     <h4>Категории:</h4>
-                    <a href="#">
+                    <Link to="/architecture-companies">
                         <div>Архитектура &amp; проектиране на сгради</div>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link to="/interior-design">
                         <div>Интериорен дизайн</div>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link to="/landscape-architect">
                         <div>Ландшафтна архитектура</div>
-                    </a>
-                    <a href="#">
+                    </Link>
+                    <Link to="/building-companies">
                         <div>Строителство и ремонтни дейности</div>
-                    </a>
+                    </Link>
                 </div>
-                <div className="footerContainerThirdColumn">
+                <div className={styles.footerContainerThirdColumn}>
                     <h4>За платформата:</h4>
                 </div>
             </div>

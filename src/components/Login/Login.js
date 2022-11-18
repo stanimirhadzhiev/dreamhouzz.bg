@@ -1,5 +1,8 @@
 import { useContext } from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, Link} from "react-router-dom";
+
+
+import styles from './Login.module.css';
 
 import * as authService from "../../services/authService";
 import { AuthContext } from "../../contexts/AuthContext";
@@ -28,15 +31,15 @@ const Login = () => {
     };
     return (
 
-        <div id="id01" className="modal" >
+        <div id="id01" className={styles.modal} >
             <form
-                className="modal-content animate"
+                className={`${styles.modalContent} ${styles.animate}`}
                 onSubmit={onSubmit}
             >
-                <div className="imgcontainer">
+                <div className={styles.imgcontainer}>
                     <span
                         onClick={() => navigate('/')}
-                        className="close"
+                        className={styles.close}
                         title="Close Modal"
                     >
                         ×
@@ -44,10 +47,10 @@ const Login = () => {
                     <img
                         src="images/icons/110-1100707_person-avatar-placeholder.png"
                         alt="Avatar"
-                        className="avatar"
+                        className={styles.avatar}
                     />
                 </div>
-                <div className="container">
+                <div className={styles.container}>
                     <label htmlFor="email">
                         <b>E-mail</b>
                     </label>
@@ -62,7 +65,7 @@ const Login = () => {
                         Запомни ме
                     </label> */}
                     </div>
-                    <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
+                    <div className={styles.container} style={{ backgroundColor: "#f1f1f1" }}>
                     <button
                         type="button"
                         onClick={() => navigate('/')}
@@ -70,8 +73,8 @@ const Login = () => {
                     >
                         Cancel
                     </button>
-                    <span className="psw">
-                        Забравена<a href="#">парола?</a>
+                    <span className={styles.psw}>
+                        Забравена<Link to="#">парола?</Link>
                     </span>
                 </div>
             </form>

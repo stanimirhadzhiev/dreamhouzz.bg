@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 
+import style from './Register.module.css'
+
 import * as authService from "../../services/authService";
 import { AuthContext } from "../../contexts/AuthContext";
 
@@ -19,7 +21,20 @@ const Register = () => {
         const password = formData.get('password');
         const confirmPassword = formData.get('confirmPassword');
         const companyName = formData.get('companyName');
-        console.log(formData);
+        const category = formData.get('category');
+        const phoneNumber = formData.get('phoneNumber');
+        const firstName = formData.get('firstName');
+        const lastName = formData.get('lastName');
+        const tac = formData.get('tac');
+
+        // console.log(companyName);
+        // console.log(category);
+        // console.log(phoneNumber);
+        // console.log(firstName);
+        // console.log(lastName);
+        // console.log(tac);
+
+        const userData = Object.fromEntries(new FormData(e.target));
 
         if (password !== confirmPassword) {
             return;
@@ -28,20 +43,21 @@ const Register = () => {
         authService.register(email, password)
             .then(authData => {
                 userLogin(authData);
+                // console.log(authData);
                 navigate('/');
             });
     }
 
     return (
-        <div id="id02" className="modal">
+        <div id="id02" className={style.modal}>
             <form
-                className="modal-content animate"
+                className={`${style.modalContent} ${style.animate}`}
                 onSubmit={onSubmit}
             >
-                <div className="container" style={{ backgroundColor: "#f1f1f1", borderRadius: "10px 10px 0px 0px" }}>
+                <div className={style.container} style={{ backgroundColor: "#f1f1f1", borderRadius: "10px 10px 0px 0px" }}>
                     <h1>Регистрация за фирми</h1>
                 </div>
-                <div className="container">
+                <div className={style.container}>
                     <label htmlFor="email">
                         <b>E-mail</b>
                     </label>
@@ -128,11 +144,11 @@ const Register = () => {
                     </label>
                     <button type="submit">Регистрация</button>
                 </div>
-                <div className="container" style={{ backgroundColor: "#f1f1f1" }}>
+                <div className={style.container} style={{ backgroundColor: "#f1f1f1" }}>
                     <button
                         onClick={() => navigate('/')}
                         type="button"
-                        className="cancelbtn"
+                        className={style.cancelbtn}
                     >
                         Cancel
                     </button>

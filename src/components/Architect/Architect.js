@@ -1,10 +1,13 @@
+import style from './Architect.module.css'
+import { Link } from 'react-router-dom';
+
 const Architect = () => {
     return (
-        <main className="tableMainSection">
-            <div className="filterSection">
+        <main className={style.tableMainSection}>
+            <div className={style.filterSection}>
                 <h1>Архитектура &amp; проектиране на сгради</h1>
-                <div className="dropDown">
-                <select id="city" name="city" className="selectCity">
+                <div className={style.dropDown}>
+                <select id="city" name="city" className={style.selectCity}>
                     <option>Всички градове</option>
                     <option>София</option>
                     <option>Пловдив</option>
@@ -37,43 +40,43 @@ const Architect = () => {
                 </select>
                 </div>
             </div>
-            <div className="tableSection">
-                <a href="companyProfilPage.html">
-                    <div className="tableRow">
-                        <div className="tableRowIMG">
+            <div className={style.tableSection}>
+                <Link to="companyProfilPage.html">
+                    <div className={style.tableRow}>
+                        <div className={style.tableRowIMG}>
                             <img src="images/pexels-photo-1571460.jpeg" alt="" />
                         </div>
-                        <div className="companyInformation">
-                            <div className="basicInformation">
-                                <img className="peopleIMG" src="images/people.jpg" alt="" />
-                                <div className="basicInformationTxt">
-                                    <div className="companyName"> SVH Build Ltd.</div>
-                                    <div className="ratingSection">
+                        <div className={style.companyInformation}>
+                            <div className={style.basicInformation}>
+                                <img className={style.peopleIMG} src="images/people.jpg" alt="" />
+                                <div className={style.basicInformationTxt}>
+                                    <div className={style.companyName}> SVH Build Ltd.</div>
+                                    <div className={style.ratingSection}>
                                         <span>4.0</span>
-                                        <span className="star star1" />
-                                        <span className="star star2" />
-                                        <span className="star star3" />
-                                        <span className="star star4" />
-                                        <span className="star star5" />
-                                        <span className="numReviews">30 Ревюта</span>
+                                        <span className={`${style.star} ${style.star1}`} />
+                                        <span className={`${style.star} ${style.star2}`} />
+                                        <span className={`${style.star} ${style.star2}`} />
+                                        <span className={`${style.star} ${style.star2}`} />
+                                        <span className={`${style.star} ${style.star2}`} />
+                                        <span className={style.numReviews}>30 Ревюта</span>
                                     </div>
                                 </div>
                             </div>
-                            <div className="moreInformation">
+                            <div className={style.moreInformation}>
                                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora
                                 eaque vel aspernatur ad laboriosam repellendus. Porro placeat nobis
                                 quibusdam doloremque provident ipsum excepturi molestias impedit aut
                                 ea. Vel, necessitatibus itaque.
                             </div>
                         </div>
-                        <div className="companyContact">
+                        <div className={style.companyContact}>
                             <button className="sendMessageBTN">Изпрати съобщение</button>
                             <div className="companyAddress">
                                 гр. Бургас, ж.к. Славейков, бл. 205
                             </div>
                         </div>
                     </div>
-                </a>
+                </Link>
             </div>
         </main>
 

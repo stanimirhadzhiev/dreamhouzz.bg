@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import { AuthContext } from './contexts/AuthContext';
+import {useLocalStorage} from './hooks/useLocalStorage';
 
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
@@ -18,7 +19,7 @@ import BuildingCompanies from './components/BuildingCompanies/BuildingCompanies'
 
 
 function App() {
-    const[auth, setAuth] = useState({});
+    const[auth, setAuth] = useLocalStorage('auth', {});
 
     const userLogin = (authData) => {
         setAuth(authData);
