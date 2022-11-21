@@ -12,7 +12,7 @@ const request = async (method, url, data) => {
         let buildRequest;
 
         if(method === 'GET'){
-            buildRequest = fetch(url, {headers}); 
+            buildRequest = fetch(url, { headers } ); 
         }
         else{
             buildRequest = fetch(url, {
@@ -22,7 +22,7 @@ const request = async (method, url, data) => {
                     'content-type': 'application/json'
                 },
                 body: JSON.stringify(data)
-            })
+            });
         }
         const response = await buildRequest;
 
