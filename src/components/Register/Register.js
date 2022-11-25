@@ -1,5 +1,4 @@
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
 
 import style from './Register.module.css'
 
@@ -19,18 +18,8 @@ const Register = ({auth}) => {
         const email = formData.get('email');
         const password = formData.get('password');
         const confirmPassword = formData.get('confirmPassword');
-        // const companyName = formData.get('companyName');
-        // const category = formData.get('category');
-        // const phoneNumber = formData.get('phoneNumber');
-        // const firstName = formData.get('firstName');
-        // const lastName = formData.get('lastName');
+        
         // const tac = formData.get('tac');
-
-        // console.log(companyName);
-        // console.log(category);
-        // console.log(phoneNumber);
-        // console.log(firstName);
-        // console.log(lastName);
         // console.log(tac);
 
         
@@ -43,7 +32,7 @@ const Register = ({auth}) => {
             .then(authData => {
                 auth.userLogin(authData);
                 // console.log(authData);
-                navigate('/');
+                navigate('/edit-profile');
             });
     }
 
@@ -87,50 +76,6 @@ const Register = ({auth}) => {
                         id="confirmPassword"
                     />
 
-                    <label htmlFor="companyName">
-                        <b>Име на фирмата</b>
-                    </label>
-                    <input
-                        type="text"
-                        placeholder="Име на фирмата"
-                        name="companyName"
-                        id="companyName"
-                    />
-
-                    <label htmlFor="category">
-                        <b>Избери категория</b>
-                    </label>
-                    <select name="category" id="category" placeholder="Избери категория">
-                        <option value="architectureAndDesign">Архитектура &amp; проектиране на сгради</option>
-                        <option value="interiorDesign">Интериорен дизайн</option>
-                        <option value="landscapeArchitecture">Ландшафтна архитектура</option>
-                        <option value="constructionAndRepair">Строителство и ремонтни дейности</option>
-                    </select>
-
-                    <label htmlFor="phoneNumber">
-                        <b>Телефонен номер</b>
-                    </label>
-                    <input 
-                        type="number" 
-                        placeholder="Телефонен номер" 
-                        name="phoneNumber" 
-                        id="phoneNumber"
-                    />
-
-                    <label htmlFor="firstName">
-                        <b>Лице за контакт</b>
-                    </label>
-                    <input 
-                        type="text" 
-                        placeholder="Име" 
-                        name="firstName"
-                    />
-                    <input 
-                        type="text" 
-                        placeholder="Фамилия" 
-                        name="lastName" 
-                    />
-
                     <label>
                         <input 
                             type="checkbox" 
@@ -147,7 +92,7 @@ const Register = ({auth}) => {
                     <button
                         onClick={() => navigate('/')}
                         type="button"
-                        className={style.cancelbtn}
+                        className={`${style.cancelbtn} ${style.button}`}
                     >
                         Cancel
                     </button>

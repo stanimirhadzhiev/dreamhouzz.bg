@@ -1,4 +1,4 @@
-button {
+.button {
     background-color: #113350;
     color: white;
     padding: 14px 20px;
@@ -7,7 +7,7 @@ button {
     cursor: pointer;
     width: 100%;
   }
-  button:hover {
+  .button:hover {
     opacity: 0.8;
   }
   /* Full-width input fields */

@@ -9,6 +9,8 @@ import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import Register from './components/Register/Register';
+import ProfilePage from './components/ProfilePage/ProfilePage';
+import EditProfile from './components/EditPrifile/EditProfile';
 import Footer from './components/Footer/Footer';
 
 import Architect from './components/Architect/Architect';
@@ -33,6 +35,8 @@ function App() {
                     <Route path="/interior-design" element={<InteriorDesign/>} />
                     <Route path="/landscape-architect" element={<LandscapeArchitect/>} />
                     <Route path="/building-companies" element={<BuildingCompanies/>} />
+                    <Route path="/profile-page" element={<ProfilePage />} />
+                    <Route path="/edit-profile" element={<EditProfile />} />
                 </Routes>
                     
                 <Footer/>
